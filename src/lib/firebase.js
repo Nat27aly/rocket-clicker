@@ -8,13 +8,13 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDj2tyTXd5izQywW5qiSQVSv0q0W2Gw9Uk",
-    authDomain: "rockclicker-linkia.firebaseapp.com",
-    projectId: "rockclicker-linkia",
-    storageBucket: "rockclicker-linkia.firebasestorage.app",
-    messagingSenderId: "709765897570",
-    appId: "1:709765897570:web:c37c1646fec5ac4251603b",
-    measurementId: "G-GG6KW208Y2"
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "",
+    measurementId: ""
   };
 
 // Inicializar la aplicación de Firebase con la configuración
