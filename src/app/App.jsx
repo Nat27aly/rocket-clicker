@@ -1,5 +1,6 @@
 import {BrowserRouter as Router} from "react-router";
 import AppRoutes from "./routes.jsx";
+import Button from "../components/Button.jsx";
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
         <Router>
             <AppRoutes/>
         </Router>
+
     )
 }
 
