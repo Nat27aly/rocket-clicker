@@ -5,7 +5,7 @@ function Button(props) {
     const {type = "button"} = props;
 
     const buttonVariants = cva(
-        'cursor-pointer transition-colors inline-flex items-center font-semibold rounded-lg px-4 py-2 gap-3  justify-center',
+        'cursor-pointer transition-colors inline-flex items-center font-semibold rounded-lg px-4 py-2 gap-3  justify-center disabled:opacity-50 disabled:cursor-not-allowed',
         {
             variants: {
                 variant: {
@@ -39,7 +39,11 @@ function Button(props) {
         <button
             type={type}
             className={cn(buttonVariants(props))}
-            onClick={props.onClick}>{props.children}</button>
+            onClick={props.onClick}
+            disabled={props.disabled}
+        >
+            {props.children}
+        </button>
     );
 }
 
