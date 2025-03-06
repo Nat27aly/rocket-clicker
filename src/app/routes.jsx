@@ -6,6 +6,8 @@ import MainLayout from "../components/MainLayout.jsx";
 import DashboardLayout from "../features/dashboard/components/DashboardLayout.jsx";
 import DashboardHomePage from "../features/dashboard/components/DashboardHomePage.jsx";
 
+import { TestHome } from "../features/auth/components/testHome.jsx"; // BORRAR
+
 function AppRoutes() {
 
     return (
@@ -14,6 +16,12 @@ function AppRoutes() {
                 <Route index element={<LandingPage/>}/>
                 <Route path="/sign-in" element={<SignInPage/>}/>
                 <Route path="/sign-up" element={<SignUpPage/>}/>
+
+                {/** BORRAR */}
+                <Route path="/testHome" element={<TestHome />} ></Route>
+
+
+
             </Route>
 
             <Route path="/dashboard" element={<DashboardLayout/>}>
