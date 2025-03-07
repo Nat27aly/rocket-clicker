@@ -86,7 +86,11 @@ function SignUpForm() {
 
 
     return (
+<<<<<<< HEAD
         <>
+=======
+        <div>
+>>>>>>> c0527479e020c42adbb3ec0b477ea1717667d40b
             <form className="w-full space-y-3" onSubmit={handleSubmit}>
                 <Input
                     type="text"
@@ -117,7 +121,11 @@ function SignUpForm() {
 
             <br></br>
             {error && <p>{error}</p>}
+<<<<<<< HEAD
         </>
+=======
+        </div>
+>>>>>>> c0527479e020c42adbb3ec0b477ea1717667d40b
     );
 }
 
