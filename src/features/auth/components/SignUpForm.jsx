@@ -2,7 +2,7 @@ import Input from "../../../components/Input.jsx";
 import AuthSubmitButton from "./AuthSubmitButton.jsx";
 import { useState } from "react";
 import { useAuth } from "../context/authContext.jsx";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 function SignUpForm() {
 
@@ -86,7 +86,7 @@ function SignUpForm() {
 
 
     return (
-        <div>
+        <>
             <form className="w-full space-y-3" onSubmit={handleSubmit}>
                 <Input
                     type="text"
@@ -117,7 +117,7 @@ function SignUpForm() {
 
             <br></br>
             {error && <p>{error}</p>}
-        </div>
+        </>
     );
 }
 
