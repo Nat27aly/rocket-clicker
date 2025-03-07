@@ -3,6 +3,7 @@ import {getAuth} from "firebase/auth";
 import {getFirestore} from "firebase/firestore";
 import {ENV} from "../config/env.js";
 
+
 const firebaseConfig = {
     apiKey: ENV.FIREBASE.API_KEY,
     authDomain: ENV.FIREBASE.AUTH_DOMAIN,
