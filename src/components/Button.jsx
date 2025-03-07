@@ -11,7 +11,8 @@ function Button(props) {
                 variant: {
                     primary: "bg-white hover:bg-gray-200 active:bg-gray-300 text-gray-900",
                     secondary: "bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 text-yellow-1000",
-                    tertiary: "bg-gray-800 hover:bg-gray-900 active:bg-gray-950 text-white"
+                    tertiary: "bg-gray-800 hover:bg-gray-900 active:bg-gray-950 text-white",
+                    cuartiary: "bg-transparent p-5 hover:bg-gray-800 border-2 border-white active:bg-gray-900 text-white"
                 },
                 size: {
                     sm: "h-9 text-sm",

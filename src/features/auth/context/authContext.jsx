@@ -1,9 +1,7 @@
 // src/features/auth/context/authContext.js
 import { createContext, useContext} from "react";
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
 import {auth} from '../../../lib/firebase';
-
-
 
 
 export const authContext = createContext();
@@ -37,5 +35,17 @@ export function AuthProvider ({children}) {
             throw error;
         }
     }
-    return <authContext.Provider value={{signup, signin}}>{children}</authContext.Provider>
+
+    const signGoogle = async () => {
+        const provider = new GoogleAuthProvider();
+        try{
+            const popUpResult = await signInWithPopup(auth, provider);
+            const userCredentialsGoogle = popUpResult.user;
+            return true;
+        } catch (error) {
+
+            throw error;
+        }
+    }
+    return <authContext.Provider value={{signup, signin, signGoogle}}>{children}</authContext.Provider>
 }
