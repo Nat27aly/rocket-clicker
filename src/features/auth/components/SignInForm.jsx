@@ -88,7 +88,7 @@ function SignInForm() {
                 <AuthSubmitButton>Ingresar</AuthSubmitButton>
             </form>
 
-            {error && <p>{error}</p>}
+            {error && <p className="text-red-700">{error}</p>}
         </>
     );
 }

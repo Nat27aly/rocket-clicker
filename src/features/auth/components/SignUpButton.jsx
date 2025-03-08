@@ -1,7 +1,7 @@
 import Button from "../../../components/Button.jsx";
 import {useNavigate} from "react-router";
 
-function SignUpButton() {
+function SignUpButton({insideApp}) {
 
     const navigate = useNavigate();
 
@@ -10,7 +10,7 @@ function SignUpButton() {
     }
 
     return (
-        <Button size="sm" onClick={handleGoToSignUpPage}>Sign Up</Button>
+        <Button size="sm" onClick={handleGoToSignUpPage} className={insideApp ? "hidden" : ""}>Sign Up</Button>
     );
 }
 

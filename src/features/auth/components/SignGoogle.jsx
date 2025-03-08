@@ -47,7 +47,7 @@ const SignGoogle = () => {
             <GoogleAuthButton clickFunction={handleClick}>Sign in with Google</GoogleAuthButton>
 
             <br></br>
-            {errorGoogle && <p className="text-red-700 font-bold">{errorGoogle}</p>}
+            {errorGoogle && <p className="text-red-700">{errorGoogle}</p>}
         </>
     );
 };
