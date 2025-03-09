@@ -120,7 +120,7 @@ function SignUpForm() {
             </form>
 
             <br></br>
-            {error && <p>{error}</p>}
+            {error && <p className="text-red-700">{error}</p>}
         </>
     );
 }
