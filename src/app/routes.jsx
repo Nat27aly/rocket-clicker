@@ -6,7 +6,7 @@ import MainLayout from "../components/MainLayout.jsx";
 import DashboardLayout from "../features/dashboard/components/DashboardLayout.jsx";
 import DashboardHomePage from "../features/dashboard/components/DashboardHomePage.jsx";
 
-import { TestHome } from "../features/auth/components/testHome.jsx"; // BORRAR
+import { TestHome } from "../features/auth/components/testHome.jsx"; // BORRAR DESPUÉS DE LA ENTREGA
 
 function AppRoutes() {
 
@@ -17,7 +17,7 @@ function AppRoutes() {
                 <Route path="/sign-in" element={<SignInPage/>}/>
                 <Route path="/sign-up" element={<SignUpPage/>}/>
 
-                {/** BORRAR */}
+                {/** BORRAR DESPUÉS DE LA ENTREGA */}
                 <Route path="/testHome" element={<TestHome />} ></Route>
 
 

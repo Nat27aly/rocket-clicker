@@ -1,12 +1,12 @@
 import Button from "../../../components/Button.jsx";
 import GoogleIcon from "../../../components/icons/GoogleIcon.jsx";
 
-function GoogleAuthButton(props) {
+function GoogleAuthButton({clickFunction, children}) {
 
     return (
-        <Button variant="tertiary" size="sm" width="full">
+        <Button variant="tertiary" size="sm" width="full" onClick={clickFunction}>
             <GoogleIcon className="w-5 h-5"/>
-            {props.children}
+            {children}
         </Button>
     );
 

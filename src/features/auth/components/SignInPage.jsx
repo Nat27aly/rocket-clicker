@@ -4,6 +4,7 @@ import Heading from "../../../components/Heading.jsx";
 import GoogleAuthButton from "./GoogleAuthButton.jsx";
 import Separator from "../../../components/Separator.jsx";
 import SignInForm from "./SignInForm.jsx";
+import SignGoogle from "./SignGoogle.jsx";
 
 function SignInPage() {
 
@@ -11,7 +12,7 @@ function SignInPage() {
         <Container size="sm" className="flex flex-col items-center pt-14">
             <Card>
                 <Heading level="5">Ingresa para guardar tu progreso e intenta superarte.</Heading>
-                <GoogleAuthButton>Sign in with Google</GoogleAuthButton>
+                <SignGoogle/>
                 <Separator label="OR"/>
                 <SignInForm/>
             </Card>

@@ -52,6 +52,9 @@ function SignInForm() {
                 case 'auth/invalid-email':
                     setError("El correo electrónico no tiene un formato válido");
                     break;
+                case 'auth/user-disabled':
+                   setError('Tienes la cuenta inhabilitada, por lo que no puedes acceder');
+                   break;
                 default:
                     setError("Hubo un error en el inicio de sesión");
                     break;
@@ -85,7 +88,7 @@ function SignInForm() {
                 <AuthSubmitButton>Ingresar</AuthSubmitButton>
             </form>
 
-            {error && <p>{error}</p>}
+            {error && <p className="text-red-700">{error}</p>}
         </>
     );
 }

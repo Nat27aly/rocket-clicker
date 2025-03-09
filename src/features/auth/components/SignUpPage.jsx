@@ -1,4 +1,4 @@
-import GoogleAuthButton from "./GoogleAuthButton.jsx";
+import SignGoogle from "./SignGoogle.jsx";
 import Heading from "../../../components/Heading.jsx";
 import Card from "../../../components/Card.jsx";
 import Container from "../../../components/Container.jsx";
@@ -14,7 +14,7 @@ function SignUpPage() {
         <Container size="sm" className="flex flex-col items-center pt-14">
             <Card>
                 <Heading level="5">Regístrate, guarda tu progreso e intenta superarte.</Heading>
-                <GoogleAuthButton>Sign up with Google</GoogleAuthButton>
+                <SignGoogle/>
                 <Separator label="OR"/>
                <SignUpForm/>
             </Card>

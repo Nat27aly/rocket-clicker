@@ -77,6 +77,10 @@ function SignUpForm() {
                     setError("Debes ingresar una contraseña");
                     break;
 
+                case 'auth/user-disabled':
+                    setError('Tienes la cuenta inhabilitada, por lo que no puedes acceder');
+                    break;
+
                 default:
                     break;
             }

@@ -1,9 +1,7 @@
 // src/features/auth/context/authContext.js
 import { createContext, useContext} from "react";
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
 import {auth} from '../../../lib/firebase';
-
-
 
 
 export const authContext = createContext();
@@ -37,5 +35,38 @@ export function AuthProvider ({children}) {
             throw error;
         }
     }
-    return <authContext.Provider value={{signup, signin}}>{children}</authContext.Provider>
+
+    const signGoogle = async () => {
+        const provider = new GoogleAuthProvider();
+        try{
+            const popUpResult = await signInWithPopup(auth, provider);
+            const userCredentialsGoogle = popUpResult.user;
+            return true;
+        } catch (error) {
+
+            throw error;
+        }
+    }
+    
+    const signOutApp = async () => {
+        try {
+            return await signOut(auth); // ✅ Retornamos true si se cerró sesión correctamente
+        } catch (error) {
+            throw error;
+        } 
+    }
+
+    function checkLogged() {
+        return new Promise((resolve) => {
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    resolve(true);  // True si el usuario ya tiene la sesión iniciada
+                } else {
+                    resolve(false); 
+                }
+            });
+        });
+    }
+
+    return <authContext.Provider value={{signup, signin, signGoogle, signOutApp, checkLogged}}>{children}</authContext.Provider>
 }
