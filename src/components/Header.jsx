@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import SignInButton from "../features/auth/components/SignInButton.jsx";
 import SignUpButton from "../features/auth/components/SignUpButton.jsx";
+import SignOutButton from "../features/auth/components/SignOutButton.jsx";
 import PickaxeIcon from "./icons/PickaxeIcon.jsx";
 import {Link} from "react-router";
 import { useLocation } from "react-router";
@@ -31,6 +32,7 @@ function Header() {
             <div className='flex items-center gap-2'>
                 <SignInButton insideApp={inside}/>
                 <SignUpButton insideApp={inside}/>
+                <SignOutButton insideApp={inside}/>
             </div>
         </div>
     );
