@@ -37,6 +37,20 @@ function SignInForm() {
             return;
         }
 
+
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(formData.email)) {
+            setError("El correo electrónico no tiene un formato válido");
+            return;
+        }
+
+        const passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+        if (!passwordRegex.test(formData.password)) {
+            setError("La contraseña debe tener al menos 8 caracteres y un símbolo (!@#$%^&*...)");
+            return;
+        }
+        
+
         try {
             await signin(formData.email, formData.password);
             navigate('/testHome'); // Redirige al inicio o a la página principal
@@ -56,7 +70,7 @@ function SignInForm() {
                    setError('Tienes la cuenta inhabilitada, por lo que no puedes acceder');
                    break;
                 default:
-                    setError("Hubo un error en el inicio de sesión");
+                    setError("Usuario no registrado");
                     break;
             }
         }
