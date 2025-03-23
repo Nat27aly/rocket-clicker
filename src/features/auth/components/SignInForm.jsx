@@ -33,23 +33,22 @@ function SignInForm() {
         setError(''); // Limpiar el error previo
 
         if (!formData.email || !formData.password) {
-            setError("Debes completar los campos email y contraseña");
+            setError("Por favor, completa ambos campos.");
             return;
         }
-
 
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (!emailRegex.test(formData.email)) {
-            setError("El correo electrónico no tiene un formato válido");
+            setError("El email es incorrecto.");
             return;
         }
 
-        const passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
         if (!passwordRegex.test(formData.password)) {
-            setError("La contraseña debe tener al menos 8 caracteres y un símbolo (!@#$%^&*...)");
+            setError("La contraseña es incorrecta.");
             return;
         }
-        
 
         try {
             await signin(formData.email, formData.password);
@@ -57,8 +56,8 @@ function SignInForm() {
         } catch (error) {
             // Maneja el error de autenticación
             switch (error.code) {
-                case 'auth/user-not-found':
-                    setError("El usuario no está registrado");
+                case 'auth/invalid-credential':
+                    setError("Correo o contraseña incorrectos.");
                     break;
                 case 'auth/wrong-password':
                     setError("La contraseña es incorrecta");
@@ -70,7 +69,7 @@ function SignInForm() {
                    setError('Tienes la cuenta inhabilitada, por lo que no puedes acceder');
                    break;
                 default:
-                    setError("Usuario no registrado");
+                    setError("Upss, algo salió mal. Intenta otra vez.");
                     break;
             }
         }
