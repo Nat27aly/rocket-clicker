@@ -41,19 +41,20 @@ function SignUpForm() {
         }
 
         if (!formData.email || !formData.password) {
-            setError("Debes completar los campos email y contraseña");
+            setError("Debes completar ambos campos: email y contraseñas");
             return;
         }
 
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (!emailRegex.test(formData.email)) {
-            setError("El correo electrónico no tiene un formato válido");
+            setError("El email no tiene un formato válido");
             return;
         }
 
-        const passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+        // min. 8 caracteres (1 letra, 1 número, 1 simbolo)
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
         if (!passwordRegex.test(formData.password)) {
-            setError("La contraseña debe tener al menos 8 caracteres y un símbolo (!@#$%^&*...)");
+            setError("La contraseña debe contener al menos 8 caracteres, incluyendo un símbolo, un número y una letra.");
             return;
         }
 
