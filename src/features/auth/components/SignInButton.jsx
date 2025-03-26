@@ -10,7 +10,7 @@ function SignInButton({ insideApp }) {
 
     return (
         <>
-            <Button variant="secondary" size="sm" onClick={handleGoToSignInPage} className={insideApp ? "hidden" : ""}>Log In
+            <Button variant="secondary" size="sm" onClick={handleGoToSignInPage} className={insideApp ? "hidden" : ""}>Sign In
             </Button>
         </>
     );
