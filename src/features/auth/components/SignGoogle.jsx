@@ -1,12 +1,12 @@
-import { React, useState } from 'react';
+import {React, useState} from 'react';
 import GoogleAuthButton from "./GoogleAuthButton.jsx";
-import { useAuth } from "../context/authContext.jsx";
-import { useNavigate } from "react-router";
+import {useAuth} from "../context/authContext.jsx";
+import {useNavigate} from "react-router";
 
 
 const SignGoogle = () => {
 
-    const { signGoogle } = useAuth();
+    const {signGoogle} = useAuth();
     const [errorGoogle, setErrorGoogle] = useState('');
     const navigate = useNavigate();
 
@@ -39,17 +39,15 @@ const SignGoogle = () => {
                     setErrorGoogle('Ha ocurrido un error y no es posible iniciar sesión por Google');
                     break;
             }
-        } 
-    } 
+        }
+    }
 
-    return (
-        <>
-            <GoogleAuthButton clickFunction={handleClick}>Sign in with Google</GoogleAuthButton>
+    return (<>
+        <GoogleAuthButton clickFunction={handleClick}>Sign in with Google</GoogleAuthButton>
 
-            <br></br>
-            {errorGoogle && <p className="text-red-700">{errorGoogle}</p>}
-        </>
-    );
+
+        {errorGoogle && <p className="text-red-700 mt-3">{errorGoogle}</p>}
+    </>);
 };
 
 export default SignGoogle;

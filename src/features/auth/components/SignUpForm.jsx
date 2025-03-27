@@ -120,8 +120,7 @@ function SignUpForm() {
                 <AuthSubmitButton>Regístrate</AuthSubmitButton>
             </form>
 
-            <br></br>
-            {error && <p className="text-red-700">{error}</p>}
+            {error && <p className="text-red-700 mt-3">{error}</p>}
         </>
     );
 }

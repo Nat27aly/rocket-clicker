@@ -5,7 +5,7 @@ function Button(props) {
     const {type = "button"} = props;
 
     const buttonVariants = cva(
-        'cursor-pointer transition-colors inline-flex items-center font-semibold rounded-lg px-4 py-2 gap-3  justify-center disabled:opacity-50 disabled:cursor-not-allowed',
+        'cursor-pointer transition-colors inline-flex items-center font-semibold rounded-lg px-4 py-2 gap-3 justify-center disabled:opacity-50 disabled:cursor-not-allowed',
         {
             variants: {
                 variant: {
