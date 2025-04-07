@@ -5,3 +5,69 @@
     --font-sans: "Inter", sans-serif;
     --color-yellow-1000: #271202;
 }
+
+/*.scroll-personalizado::-webkit-scrollbar {
+    width: 8px;
+}*/
+
+.scroll-personalizado::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scroll-personalizado::-webkit-scrollbar-thumb {
+    background: rgba(249, 183, 10, 0.5);
+    border-radius: 4px;
+}
+
+.scroll-personalizado::-webkit-scrollbar-thumb:hover {
+    background: rgba(249, 183, 10, 0.8);
+}
+
+.scroll-personalizado {
+    scrollbar-width: auto;
+    scrollbar-color: rgba(249, 183, 10, 0.8) transparent;
+}
+
+.size-noheader {
+    height: calc(100vh - 4rem);
+}
+
+.rock-position {
+    position: relative;
+    top: 10%;
+}
+
+@keyframes botonVibrar {
+    0% {
+        transform: translateX(0);
+    }
+
+    10% {
+        transform: translateX(-5px);
+    }
+
+    30% {
+        transform: translateX(5px);
+    }
+
+    50% {
+        transform: translateX(-3px);
+    }
+
+    70% {
+        transform: translateX(3px);
+    }
+
+    90% {
+        transform: translateX(-1px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.vibrar {
+    animation: botonVibrar 0.3s ease-in-out;
+}
+

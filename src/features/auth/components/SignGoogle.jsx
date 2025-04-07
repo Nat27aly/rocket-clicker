@@ -16,7 +16,7 @@ const SignGoogle = () => {
 
         try {
             await signGoogle();
-            navigate('/testHome')
+            navigate('/game')
 
         } catch (error) {
             switch (error.code) {
