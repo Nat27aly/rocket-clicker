@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './particles.css';
 
 export default function Rock() {
-    const [shaking, setshaking] = useState(true);
+    const [shaking, setShaking] = useState(true);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
@@ -15,19 +15,19 @@ export default function Rock() {
 
     useEffect(() => {
         if (shaking) {
-            setshaking(false);
+            setShaking(false);
         }
     }, [shaking]);
 
     function handleClick() {
-        setshaking(!shaking);
+        setShaking(!shaking);
 
     }
 
     return (
         <>
             <div className="flex items-center justify-center rock-position">
-                <button onClick={handleClick} className={`${shaking ? '' : 'vibrar'} transition transform duration-200 ease-in-out hover:scale-105 particleButton`}>
+                <button onClick={handleClick} className={`${shaking ? '' : 'shake'} transition transform duration-200 ease-in-out hover:scale-105 particleButton`}>
                     <img className="w-35 sm:w-42 md:w-65 lg:w-75 xl:w-75 2xl:w-65" src="/rock.svg" alt="rock click" />
                     <div className={`w-35 sm:w-42 md:w-65 lg:w-75 xl:w-75 2xl:w-65 particleButton particles hidden md:block ${shaking ? '' : 'animated'}`}
                         style={{
