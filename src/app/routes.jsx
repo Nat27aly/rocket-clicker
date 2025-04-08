@@ -6,7 +6,7 @@ import MainLayout from "../components/MainLayout.jsx";
 import DashboardLayout from "../features/dashboard/components/DashboardLayout.jsx";
 import DashboardHomePage from "../features/dashboard/components/DashboardHomePage.jsx";
 
-import { RockSection } from "../features/game/components/RockSection.jsx";
+import { GameSection } from "../features/game/components/GameSection.jsx";
 
 function AppRoutes() {
 
@@ -16,7 +16,7 @@ function AppRoutes() {
                 <Route index element={<LandingPage/>}/>
                 <Route path="/sign-in" element={<SignInPage/>}/>
                 <Route path="/sign-up" element={<SignUpPage/>}/>
-                <Route path="/game" element={<RockSection />} ></Route>
+                <Route path="/game" element={<GameSection />} ></Route>
 
 
 
