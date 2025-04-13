@@ -52,7 +52,7 @@ function SignInForm() {
 
         try {
             await signin(formData.email, formData.password);
-            navigate('/testHome'); // Redirige al inicio o a la página principal
+            navigate('/game');
         } catch (error) {
             // Maneja el error de autenticación
             switch (error.code) {

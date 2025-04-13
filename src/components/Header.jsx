@@ -15,7 +15,7 @@ function Header() {
     const currentUrl = location.pathname;
     
     useEffect(() => {
-        if (currentUrl === "/testHome") {
+        if (currentUrl === "/game") {
             setInside(true);
         } else {
             setInside(false);

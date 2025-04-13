@@ -1,0 +1,308 @@
+.particles {
+    position: absolute;
+    content: "";
+    pointer-events: none;
+
+}
+
+.particles::after {
+    position: absolute;
+    content: "";
+    pointer-events: none;
+    transition: background-size ease-in-out 0.5s,
+        background-position ease-in-out 0.5s;
+    background-repeat: no-repeat;
+    min-width: 1000px;
+    min-height: 800px;
+}
+
+.animated::after {
+    animation: theButtonAnimation linear 9.5s forwards;
+    background-image:
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray),
+        linear-gradient(white, gray)
+}
+
+@keyframes theButtonAnimation {
+    0% {
+
+        background-size: 27px 27px, 16px 16px, 19px 19px, 25px 25px, 25px 25px, 19px 19px, 26px 26px, 16px 16px, 16px 16px, 22px 22px, 28px 28px, 15px 15px, 21px 21px, 22px 22px, 23px 23px, 28px 28px, 16px 16px, 18px 18px, 16px 16px, 22px 22px;
+        background-position: 528px 500px, 528px 518px, 516px 526px, 501px 530px, 487px 532px, 476px 533px, 460px 523px, 455px 517px, 449px 505px, 443px 488px, 442px 471px, 455px 465px, 462px 452px, 475px 446px, 488px 443px, 499px 443px, 518px 455px, 527px 464px, 534px 477px, 533px 488px;
+    }
+
+    2.3% {
+
+        background-size: 7px 7px, 4px 4px, 5px 5px, 7px 7px, 6px 6px, 5px 5px, 7px 7px, 4px 4px, 4px 4px, 6px 6px, 7px 7px, 4px 4px, 6px 6px, 6px 6px, 6px 6px, 7px 7px, 4px 4px, 5px 5px, 4px 4px, 6px 6px;
+        background-position: 608px 405px, 618px 514px, 626px 564px, 593px 618px, 557px 647px, 611px 688px, 697px 808px, 522px 716px, 534px 853px, 449px 863px, 419px 682px, 428px 619px, 400px 612px, 212px 640px, 452px 557px, 270px 484px, 310px 405px, 396px 393px, 503px 460px, 541px 501px;
+    }
+
+    4.6% {
+
+        background-size: 2px 2px, 1px 1px, 1px 1px, 1px 1px, 1px 1px, 1px 1px, 2px 2px, 1px 1px, 1px 1px, 1px 1px, 2px 2px, 1px 1px, 1px 1px, 1px 1px, 1px 1px, 2px 2px, 1px 1px, 1px 1px, 1px 1px, 1px 1px;
+        background-position: 653px 531px, 671px 696px, 690px 771px, 646px 855px, 596px 900px, 690px 966px, 837px 1164px, 561px 1021px, 583px 1247px, 450px 1273px, 401px 992px, 410px 897px, 360px 893px, 51px 942px, 427px 809px, 127px 692px, 182px 559px, 316px 534px, 482px 634px, 542px 693px;
+    }
+
+    6.9% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 679px 792px, 702px 992px, 728px 1082px, 676px 1183px, 618px 1238px, 737px 1319px, 920px 1564px, 584px 1390px, 613px 1671px, 450px 1706px, 390px 1364px, 398px 1250px, 335px 1248px, -46px 1309px, 412px 1147px, 41px 1004px, 105px 838px, 266px 806px, 469px 925px, 543px 994px;
+    }
+
+    9.3% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 694px 1136px, 721px 1357px, 751px 1455px, 695px 1567px, 631px 1628px, 765px 1718px, 970px 1991px, 597px 1799px, 631px 2112px, 450px 2153px, 383px 1775px, 392px 1649px, 321px 1649px, -105px 1717px, 403px 1538px, -11px 1378px, 58px 1193px, 236px 1156px, 461px 1287px, 542px 1362px;
+    }
+
+    11.6% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 705px 1529px, 734px 1763px, 766px 1867px, 708px 1986px, 641px 2051px, 784px 2147px, 1001px 2437px, 606px 2234px, 641px 2567px, 448px 2611px, 377px 2210px, 385px 2078px, 309px 2077px, -143px 2149px, 395px 1959px, -45px 1788px, 29px 1591px, 218px 1551px, 457px 1690px, 543px 1769px;
+    }
+
+    13.9% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 706px 1954px, 736px 2194px, 770px 2300px, 711px 2421px, 644px 2488px, 793px 2587px, 1020px 2887px, 612px 2678px, 650px 3024px, 452px 3071px, 378px 2658px, 387px 2522px, 308px 2523px, -161px 2600px, 394px 2403px, -63px 2228px, 12px 2024px, 205px 1982px, 451px 2124px, 539px 2204px;
+    }
+
+    16.2% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 712px 2403px, 741px 2648px, 774px 2756px, 711px 2879px, 641px 2945px, 792px 3044px, 1023px 3348px, 608px 3132px, 647px 3484px, 447px 3530px, 374px 3108px, 385px 2969px, 306px 2971px, -170px 3050px, 397px 2851px, -68px 2674px, 8px 2468px, 206px 2427px, 455px 2574px, 544px 2657px;
+    }
+
+    18.6% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 724px 2857px, 753px 3108px, 784px 3220px, 719px 3346px, 645px 3415px, 795px 3515px, 1026px 3822px, 603px 3602px, 641px 3955px, 437px 3999px, 363px 3569px, 375px 3426px, 297px 3424px, -183px 3503px, 393px 3300px, -74px 3121px, 6px 2913px, 208px 2873px, 463px 3025px, 554px 3111px;
+    }
+
+    20.9% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 736px 3309px, 767px 3565px, 800px 3682px, 733px 3813px, 657px 3886px, 805px 3990px, 1034px 4301px, 604px 4080px, 639px 4436px, 429px 4478px, 352px 4042px, 361px 3894px, 282px 3889px, -201px 3964px, 381px 3756px, -86px 3572px, -2px 3361px, 205px 3320px, 466px 3473px, 562px 3562px;
+    }
+
+    23.2% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 744px 3758px, 779px 4019px, 815px 4139px, 750px 4276px, 673px 4354px, 821px 4464px, 1048px 4780px, 613px 4562px, 643px 4920px, 427px 4963px, 344px 4523px, 350px 4373px, 267px 4363px, -219px 4433px, 365px 4221px, -104px 4031px, -16px 3814px, 196px 3770px, 463px 3922px, 563px 4011px;
+    }
+
+    25.5% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 746px 4206px, 787px 4469px, 828px 4593px, 766px 4735px, 692px 4819px, 840px 4934px, 1067px 5257px, 627px 5043px, 653px 5405px, 431px 5451px, 341px 5010px, 342px 4857px, 254px 4844px, -237px 4911px, 347px 4693px, -124px 4497px, -34px 4273px, 181px 4225px, 454px 4373px, 559px 4460px;
+    }
+
+    27.9% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 744px 4654px, 791px 4917px, 838px 5043px, 782px 5189px, 711px 5279px, 861px 5400px, 1088px 5730px, 645px 5522px, 668px 5890px, 440px 5939px, 344px 5499px, 338px 5346px, 243px 5331px, -253px 5394px, 328px 5171px, -145px 4968px, -55px 4737px, 162px 4683px, 440px 4826px, 550px 4910px;
+    }
+
+    30.2% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 737px 5101px, 792px 5364px, 846px 5491px, 795px 5641px, 729px 5736px, 883px 5863px, 1110px 6200px, 666px 5998px, 685px 6372px, 452px 6427px, 349px 5990px, 337px 5837px, 235px 5821px, -267px 5880px, 310px 5653px, -166px 5444px, -77px 5205px, 141px 5145px, 423px 5281px, 538px 5361px;
+    }
+
+    32.5% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 729px 5549px, 790px 5810px, 851px 5938px, 808px 6091px, 747px 6191px, 904px 6324px, 1133px 6668px, 688px 6474px, 705px 6854px, 467px 6914px, 358px 6481px, 338px 6330px, 230px 6312px, -280px 6369px, 293px 6137px, -188px 5923px, -100px 5676px, 118px 5610px, 404px 5738px, 522px 5813px;
+    }
+
+    34.8% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 718px 5998px, 786px 6256px, 855px 6385px, 818px 6540px, 764px 6644px, 925px 6783px, 1157px 7134px, 711px 6947px, 727px 7334px, 484px 7401px, 368px 6972px, 342px 6823px, 225px 6805px, -291px 6860px, 277px 6624px, -209px 6404px, -124px 6149px, 95px 6076px, 383px 6196px, 505px 6266px;
+    }
+
+    37.2% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 706px 6447px, 781px 6702px, 857px 6830px, 828px 6987px, 781px 7096px, 946px 7241px, 1180px 7599px, 735px 7420px, 749px 7813px, 502px 7887px, 380px 7463px, 347px 7316px, 222px 7299px, -301px 7352px, 261px 7112px, -229px 6887px, -148px 6624px, 71px 6544px, 361px 6656px, 487px 6720px;
+    }
+
+    39.5% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 693px 6896px, 776px 7149px, 859px 7276px, 838px 7435px, 797px 7547px, 967px 7698px, 1204px 8064px, 760px 7892px, 772px 8292px, 521px 8372px, 392px 7954px, 352px 7810px, 220px 7793px, -310px 7844px, 246px 7602px, -250px 7370px, -171px 7100px, 46px 7013px, 339px 7116px, 468px 7175px;
+    }
+
+    41.8% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 679px 7345px, 769px 7595px, 860px 7721px, 846px 7881px, 812px 7998px, 988px 8154px, 1228px 8527px, 784px 8363px, 795px 8770px, 540px 8857px, 405px 8445px, 359px 8304px, 219px 8288px, -319px 8337px, 231px 8091px, -270px 7854px, -195px 7576px, 21px 7483px, 316px 7577px, 448px 7630px;
+    }
+
+    44.1% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 665px 7795px, 762px 8041px, 860px 8166px, 855px 8328px, 828px 8449px, 1008px 8611px, 1252px 8990px, 809px 8834px, 819px 9248px, 560px 9343px, 419px 8935px, 365px 8798px, 218px 8783px, -328px 8831px, 217px 8581px, -290px 8339px, -219px 8053px, -3px 7953px, 292px 8038px, 429px 8085px;
+    }
+
+    46.5% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 650px 8244px, 755px 8487px, 861px 8611px, 863px 8775px, 843px 8899px, 1029px 9066px, 1276px 9453px, 834px 9304px, 842px 9725px, 580px 9827px, 433px 9426px, 372px 9291px, 217px 9278px, -336px 9324px, 202px 9071px, -310px 8824px, -243px 8530px, -28px 8423px, 269px 8499px, 408px 8540px;
+    }
+
+    48.8% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 636px 8694px, 747px 8933px, 861px 9056px, 871px 9221px, 858px 9349px, 1049px 9522px, 1300px 9916px, 859px 9775px, 866px 10203px, 600px 10312px, 447px 9916px, 380px 9785px, 216px 9772px, -344px 9818px, 188px 9562px, -330px 9309px, -267px 9008px, -53px 8893px, 246px 8961px, 388px 8996px;
+    }
+
+    51.1% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 621px 9144px, 739px 9380px, 861px 9501px, 879px 9667px, 873px 9799px, 1069px 9977px, 1323px 10378px, 884px 10245px, 890px 10680px, 620px 10797px, 461px 10407px, 387px 10279px, 215px 10267px, -352px 10311px, 174px 10052px, -349px 9794px, -291px 9485px, -78px 9364px, 222px 9422px, 368px 9451px;
+    }
+
+    53.4% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 606px 9594px, 732px 9826px, 861px 9946px, 887px 10114px, 888px 10249px, 1090px 10433px, 1347px 10841px, 909px 10715px, 914px 11157px, 640px 11281px, 476px 10897px, 394px 10773px, 215px 10762px, -360px 10805px, 160px 10543px, -369px 10279px, -314px 9963px, -103px 9835px, 199px 9884px, 347px 9907px;
+    }
+
+    55.8% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 591px 10044px, 724px 10272px, 860px 10392px, 895px 10560px, 903px 10699px, 1110px 10888px, 1371px 11303px, 934px 11185px, 938px 11634px, 661px 11766px, 490px 11388px, 402px 11267px, 214px 11257px, -368px 11299px, 145px 11034px, -389px 10764px, -338px 10440px, -128px 10305px, 175px 10346px, 327px 10363px;
+    }
+
+    58.1% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 577px 10494px, 716px 10718px, 860px 10837px, 903px 11006px, 918px 11149px, 1130px 11344px, 1395px 11765px, 959px 11656px, 962px 12112px, 681px 12251px, 504px 11878px, 409px 11761px, 214px 11752px, -376px 11792px, 131px 11524px, -409px 11250px, -362px 10918px, -153px 10776px, 151px 10808px, 306px 10818px;
+    }
+
+    60.4% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 562px 10944px, 708px 11165px, 860px 11282px, 910px 11452px, 933px 11599px, 1150px 11799px, 1419px 12228px, 984px 12126px, 986px 12589px, 701px 12735px, 519px 12369px, 417px 12254px, 213px 12247px, -384px 12286px, 117px 12015px, -428px 11735px, -386px 11396px, -178px 11247px, 128px 11270px, 286px 11274px;
+    }
+
+    62.7% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 547px 11393px, 701px 11611px, 860px 11727px, 918px 11899px, 948px 12049px, 1171px 12254px, 1442px 12690px, 1009px 12596px, 1010px 13066px, 722px 13220px, 533px 12859px, 425px 12748px, 213px 12742px, -391px 12780px, 103px 12505px, -448px 12220px, -410px 11873px, -203px 11718px, 104px 11732px, 265px 11730px;
+    }
+
+    65.1% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 532px 11843px, 693px 12057px, 860px 12172px, 926px 12345px, 963px 12499px, 1191px 12710px, 1466px 13152px, 1034px 13066px, 1034px 13543px, 742px 13704px, 547px 13350px, 432px 13242px, 213px 13237px, -399px 13274px, 89px 12996px, -468px 12706px, -433px 12351px, -228px 12188px, 80px 12193px, 245px 12186px;
+    }
+
+    67.4% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 517px 12293px, 685px 12503px, 859px 12617px, 934px 12791px, 978px 12949px, 1211px 13165px, 1490px 13615px, 1059px 13536px, 1058px 14020px, 762px 14189px, 562px 13840px, 440px 13736px, 212px 13732px, -407px 13767px, 75px 13487px, -488px 13191px, -457px 12829px, -253px 12659px, 57px 12655px, 224px 12641px;
+    }
+
+    69.7% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 502px 12743px, 677px 12950px, 859px 13062px, 941px 13237px, 993px 13399px, 1231px 13620px, 1514px 14077px, 1084px 14006px, 1082px 14497px, 783px 14673px, 576px 14330px, 447px 14230px, 212px 14227px, -415px 14261px, 61px 13978px, -507px 13677px, -481px 13306px, -278px 13130px, 33px 13117px, 204px 13097px;
+    }
+
+    72% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 487px 13193px, 669px 13396px, 859px 13507px, 949px 13684px, 1008px 13849px, 1252px 14075px, 1538px 14539px, 1109px 14476px, 1106px 14974px, 803px 15158px, 591px 14821px, 455px 14724px, 211px 14722px, -423px 14755px, 47px 14468px, -527px 14162px, -505px 13784px, -303px 13601px, 10px 13579px, 183px 13553px;
+    }
+
+    74.4% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 472px 13643px, 661px 13842px, 859px 13952px, 957px 14130px, 1022px 14299px, 1272px 14531px, 1561px 15001px, 1134px 14946px, 1130px 15452px, 823px 15643px, 605px 15311px, 462px 15217px, 211px 15217px, -430px 15249px, 33px 14959px, -547px 14647px, -528px 14262px, -328px 14072px, -14px 14041px, 163px 14009px;
+    }
+
+    76.7% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 458px 14093px, 653px 14288px, 859px 14397px, 965px 14576px, 1037px 14749px, 1292px 14986px, 1585px 15464px, 1159px 15416px, 1154px 15929px, 844px 16127px, 620px 15802px, 470px 15711px, 211px 15712px, -438px 15742px, 19px 15450px, -566px 15133px, -552px 14740px, -353px 14542px, -38px 14503px, 142px 14464px;
+    }
+
+    79% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 443px 14543px, 646px 14735px, 858px 14842px, 972px 15022px, 1052px 15199px, 1312px 15441px, 1609px 15926px, 1184px 15887px, 1177px 16406px, 864px 16612px, 634px 16292px, 478px 16205px, 210px 16207px, -446px 16236px, 5px 15940px, -586px 15618px, -576px 15217px, -378px 15013px, -61px 14965px, 121px 14920px;
+    }
+
+    81.3% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 428px 14993px, 638px 15181px, 858px 15287px, 980px 15469px, 1067px 15649px, 1332px 15897px, 1633px 16388px, 1209px 16357px, 1201px 16883px, 884px 17096px, 648px 16783px, 485px 16699px, 210px 16702px, -454px 16730px, -9px 16431px, -606px 16103px, -600px 15695px, -403px 15484px, -85px 15427px, 101px 15376px;
+    }
+
+    83.7% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 413px 15443px, 630px 15627px, 858px 15732px, 988px 15915px, 1082px 16099px, 1353px 16352px, 1656px 16851px, 1234px 16827px, 1225px 17360px, 905px 17581px, 663px 17273px, 493px 17193px, 210px 17197px, -462px 17224px, -23px 16922px, -625px 16589px, -624px 16173px, -428px 15955px, -109px 15888px, 80px 15832px;
+    }
+
+    86% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 398px 15893px, 622px 16073px, 858px 16177px, 996px 16361px, 1097px 16549px, 1373px 16807px, 1680px 17313px, 1259px 17297px, 1249px 17837px, 925px 18065px, 677px 17763px, 500px 17687px, 209px 17692px, -469px 17717px, -37px 17412px, -645px 17074px, -647px 16651px, -453px 16426px, -132px 16350px, 60px 16287px;
+    }
+
+    88.3% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 383px 16343px, 614px 16520px, 857px 16622px, 1003px 16807px, 1112px 16999px, 1393px 17263px, 1704px 17775px, 1284px 17767px, 1273px 18314px, 945px 18550px, 692px 18254px, 508px 18180px, 209px 18187px, -477px 18211px, -51px 17903px, -665px 17560px, -671px 17128px, -478px 16896px, -156px 16812px, 39px 16743px;
+    }
+
+    90.6% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 368px 16792px, 606px 16966px, 857px 17067px, 1011px 17253px, 1127px 17449px, 1413px 17718px, 1728px 18238px, 1309px 18237px, 1297px 18791px, 966px 19034px, 706px 18744px, 516px 18674px, 208px 18682px, -485px 18705px, -65px 18394px, -685px 18045px, -695px 17606px, -503px 17367px, -180px 17274px, 19px 17199px;
+    }
+
+    93% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 353px 17242px, 598px 17412px, 857px 17512px, 1019px 17700px, 1142px 17898px, 1433px 18173px, 1752px 18700px, 1334px 18707px, 1321px 19269px, 986px 19519px, 720px 19235px, 523px 19168px, 208px 19177px, -493px 19199px, -79px 18884px, -704px 18530px, -719px 18084px, -528px 17838px, -203px 17736px, -2px 17655px;
+    }
+
+    95.3% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 338px 17692px, 591px 17859px, 857px 17957px, 1027px 18146px, 1157px 18348px, 1454px 18628px, 1775px 19162px, 1359px 19177px, 1345px 19746px, 1006px 20003px, 735px 19725px, 531px 19662px, 208px 19672px, -501px 19692px, -94px 19375px, -724px 19016px, -742px 18561px, -553px 18309px, -227px 18198px, -22px 18110px;
+    }
+
+    97.6% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 323px 18142px, 583px 18305px, 857px 18402px, 1034px 18592px, 1172px 18798px, 1474px 19084px, 1799px 19624px, 1384px 19647px, 1369px 20223px, 1027px 20488px, 749px 20216px, 538px 20156px, 207px 20167px, -508px 20186px, -108px 19866px, -744px 19501px, -766px 19039px, -578px 18780px, -251px 18660px, -43px 18566px;
+    }
+
+    100% {
+
+        background-size: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        background-position: 309px 18592px, 575px 18751px, 856px 18847px, 1042px 19038px, 1186px 19248px, 1494px 19539px, 1823px 20087px, 1409px 20117px, 1393px 20700px, 1047px 20973px, 764px 20706px, 546px 20649px, 207px 20662px, -516px 20680px, -122px 20356px, -763px 19987px, -790px 19517px, -603px 19251px, -274px 19122px, -64px 19022px;
+    }
+}
