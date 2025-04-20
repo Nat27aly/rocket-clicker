@@ -79,6 +79,8 @@ function SignInForm() {
 
     return (
         <>
+            <section role="region" aria-labelledby="sign-in-title" className="w-full max-w-md mx-auto">
+                <h2 id="sign-in-title" className="sr-only">Inicio de sesión</h2>
             <form className="w-full space-y-3" onSubmit={handleSubmit}>
                 <Input
                     type="text"
@@ -88,6 +90,8 @@ function SignInForm() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="nombre@mail.com"
+                    aria-describedby={error ? 'signin-form-error' : undefined}
+
                 />
                 <Input
                     type="password"
@@ -97,11 +101,13 @@ function SignInForm() {
                     value={formData.password}
                     onChange={handleChange}
                     placeholder=""
+                    aria-describedby={error ? 'signin-form-error' : undefined}
+
                 />
                 <AuthSubmitButton>Ingresar</AuthSubmitButton>
             </form>
-
-            {error && <p className="text-red-700">{error}</p>}
+</section>
+            {error && <p id={"signin-form-error"} aria-live={"assertive"} className="text-red-700">{error}</p>}
         </>
     );
 }
