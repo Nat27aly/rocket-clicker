@@ -1,35 +1,32 @@
 import Input from "../../../components/Input.jsx";
 import AuthSubmitButton from "./AuthSubmitButton.jsx";
-import { useState } from "react";
-import { useAuth } from "../context/authContext.jsx";
-import { useNavigate } from 'react-router';
+import {useState} from "react";
+import {useAuth} from "../context/authContext.jsx";
+import {useNavigate} from 'react-router';
 
 function SignUpForm() {
 
     const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-        repeatPassword: ''
+        email: '', password: '', repeatPassword: ''
     });
 
-    const { signup } = useAuth();
+    const {signup} = useAuth();
     const [error, setError] = useState(''); // Mensajes de advertencia 'input'.
     const navigate = useNavigate(); // Redirección a Home
 
-    function handleChange(event){
-        const name =event.target.name;
-        const value= event.target.value;
+    function handleChange(event) {
+        const name = event.target.name;
+        const value = event.target.value;
 
-        const newFormData ={
-            ...formData,
-        [name]:value
+        const newFormData = {
+            ...formData, [name]: value
         };
 
         setFormData(newFormData);
     }
 
 
-    async function handleSubmit (event) {
+    async function handleSubmit(event) {
         event.preventDefault();
         setError('');
         // Aqui podemos enviar la info a firebase
@@ -58,7 +55,7 @@ function SignUpForm() {
             return;
         }
 
-        
+
         try {
             await signup(formData.email, formData.password);
             navigate('/');
@@ -90,8 +87,9 @@ function SignUpForm() {
     }
 
 
-    return (
-        <>
+    return (<>
+        <section role="region" aria-labelledby="sign-up-title"  className="w-full max-w-md mx-auto">
+            <h2 id="sign-up-title" className="sr-only">Registro de usuario</h2>
             <form className="w-full space-y-3" onSubmit={handleSubmit}>
                 <Input
                     type="text"
@@ -100,7 +98,9 @@ function SignUpForm() {
                     id="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="nombre@mail.com" />
+                    placeholder="nombre@mail.com"
+                    aria-describedby={error ? 'signup-form-error' : undefined}
+                />
                 <Input
                     type="password"
                     name="password"
@@ -108,7 +108,9 @@ function SignUpForm() {
                     label="Contraseña"
                     value={formData.password}
                     onChange={handleChange}
-                    placeholder="" />
+                    placeholder=""
+                    aria-describedby={error ? 'signup-form-error' : undefined}
+                />
                 <Input
                     type="password"
                     name="repeatPassword"
@@ -116,13 +118,15 @@ function SignUpForm() {
                     label="Repite contraseña"
                     value={formData.repeatPassword}
                     onChange={handleChange}
-                    placeholder="" />
+                    placeholder=""
+                    aria-describedby={error ? 'signup-form-error' : undefined}
+                />
                 <AuthSubmitButton>Regístrate</AuthSubmitButton>
-            </form>
 
-            {error && <p className="text-red-700 mt-3">{error}</p>}
-        </>
-    );
+            </form>
+        </section>
+        {error && <p id={"signin-form-error"} className="text-red-700 mt-3">{error}</p>}
+    </>);
 }
 
 export default SignUpForm;
