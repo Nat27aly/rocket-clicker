@@ -2,7 +2,9 @@
 
 ## Uso para desarrollo
 
-- Crear una nueva rama o *branch* del develop, nombrarla como ***feature/nombre-cambio*** y clonarla en local
+- GitFlow
+
+-  Crear una nueva rama o *branch* del develop, nombrarla como ***feature/nombre-cambio*** y clonarla en local
 
 - Trabajar y desarrollar el código para realizar los cambios o añadir las nuevas funcionalidades que tienes encomendadas
 
