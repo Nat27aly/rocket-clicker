@@ -11,7 +11,7 @@ function MainLayout() {
 
     return (<div className={`min-h-screen bg-gray-700 font-sans ${location.pathname === '/game' ? 'overflow-hidden' : ''}`}>
         <Header/>
-        <main className='grow'>
+        <main className='relative grow overflow-hidden'>
             <Outlet/>
 
             {/*Piedra de la izquierda*/}
@@ -25,7 +25,7 @@ function MainLayout() {
             <img
                 src="/rocks-right.svg"
                 alt="Piedra Derecha"
-                className={`fixed bottom-0 right-0 z-0 hidden opacity-40 ${location.pathname === '/game' ? 'xl:hidden' : 'xl:block'}`}
+                className={` fixed bottom-0 right-0 z-0 hidden opacity-40 ${location.pathname === '/game' ? 'xl:hidden' : 'xl:block'}`}
             />
         </main>
     </div>);
