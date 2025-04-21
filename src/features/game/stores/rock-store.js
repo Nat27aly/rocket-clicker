@@ -10,7 +10,7 @@ const initialUpgrades = {
         icon: '/pickaxe-click.svg',
         price: 15,
         cps: 0.1,
-        quantity: 100,
+        quantity: 0,
         hidden: true,
         constMultiplier: 0.2
     },
