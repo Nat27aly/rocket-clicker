@@ -1,8 +1,6 @@
-// src/features/auth/context/authContext.js
-import { createContext, useContext} from "react";
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
-import {auth} from '../../../lib/firebase';
-
+import { createContext, useContext, useState, useEffect } from "react";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../../lib/firebase';
 
 export const authContext = createContext();
 
@@ -14,59 +12,46 @@ export const useAuth = () => {
     return context;
 };
 
-export function AuthProvider ({children}) {
-    // Registro: Se guardan los datos del usuario en firebase. Ver en (firebase/authentication/users)
-    const signup = async (email, password, repeatPassword)=>{
-        try {
-            return await createUserWithEmailAndPassword(auth, email, password, repeatPassword); 
-        } catch (error){
-            console.log("Error en signup:", error);
-            throw error;
-        }
+export function AuthProvider({ children }) {
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+
+        return () => unsubscribe();
+    }, []);
+
+    const signup = async (email, password, repeatPassword) => {
+        return await createUserWithEmailAndPassword(auth, email, password, repeatPassword); 
     }
 
     const signin = async (email, password) => {
-        try {
-            const userCredentials = await signInWithEmailAndPassword(auth, email, password);
-            console.log(userCredentials);
-           return await signInWithEmailAndPassword(auth, email, password);
-        } catch (error) {
-            console.log("Error al logear usuario: ", error);
-            throw error;
-        }
+        return await signInWithEmailAndPassword(auth, email, password);
     }
 
     const signGoogle = async () => {
         const provider = new GoogleAuthProvider();
-        try{
-            const popUpResult = await signInWithPopup(auth, provider);
-            const userCredentialsGoogle = popUpResult.user;
-            return true;
-        } catch (error) {
-
-            throw error;
-        }
+        const popUpResult = await signInWithPopup(auth, provider);
+        return true;
     }
-    
+
     const signOutApp = async () => {
-        try {
-            return await signOut(auth); // ✅ Retornamos true si se cerró sesión correctamente
-        } catch (error) {
-            throw error;
-        } 
+        return await signOut(auth);
     }
 
-    function checkLogged() {
+    const checkLogged = () => {
         return new Promise((resolve) => {
             onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    resolve(true);  // True si el usuario ya tiene la sesión iniciada
-                } else {
-                    resolve(false); 
-                }
+                resolve(!!user);
             });
         });
     }
 
-    return <authContext.Provider value={{signup, signin, signGoogle, signOutApp, checkLogged}}>{children}</authContext.Provider>
+    return (
+        <authContext.Provider value={{ user, signup, signin, signGoogle, signOutApp, checkLogged }}>
+            {children}
+        </authContext.Provider>
+    );
 }

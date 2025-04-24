@@ -3,6 +3,7 @@ import AuthSubmitButton from "./AuthSubmitButton.jsx";
 import {useState} from "react";
 import {useAuth} from "../context/authContext.jsx";
 import {useNavigate} from 'react-router';
+import {saveProgressToFirestore} from "../../../lib/firestore.js";
 
 function SignUpForm() {
 
@@ -30,7 +31,7 @@ function SignUpForm() {
         event.preventDefault();
         setError('');
         // Aqui podemos enviar la info a firebase
-        console.log('Enviamos los datos:', formData);
+        console.log('Enviamos los datos a Firebase:', formData);
 
         if (formData.password !== formData.repeatPassword) {
             setError("Las contraseñas no coinciden");
@@ -56,8 +57,14 @@ function SignUpForm() {
         }
 
 
-        try {
-            await signup(formData.email, formData.password);
+        try {            
+            //Registro en Firestore (usuario: iud, email, puntos y mejoras)
+            const userCredential = await signup(formData.email, formData.password);
+            const user = userCredential.user;
+
+            await saveProgressToFirestore(user.uid, user.email, 0, []);
+            
+
             navigate('/');
         } catch (error) {
 

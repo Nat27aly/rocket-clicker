@@ -1,5 +1,6 @@
 import {create} from "zustand";
 import {loadFromLocalStorage, saveToLocalStorage} from "../../../utils/local-storage.js";
+import {saveProgressToFirestore} from "../../../lib/firestore.js";
 
 const LOCAL_STORAGE_KEY = 'rock-clicker-save-1';
 
@@ -31,7 +32,7 @@ const initialUpgrades = {
         quantity: 0,
         hidden: true,
         constMultiplier: .75
-    }
+    }    
 }
 
 const localData = loadFromLocalStorage(LOCAL_STORAGE_KEY);
@@ -126,16 +127,21 @@ const useRockStore = create((set, get) => ({
             saveToLocalStorage(LOCAL_STORAGE_KEY, newState)
             set(newState)
         }
-
-
+        
     },
-    // Simular sincronización con el servidor
-    syncToServer: async () => {
-        const state = get();
 
-        // Llamada de firebase aqui para guardar el estado que se saca del state
-        console.log('[Simulación]: Guardando progreso con el server...');
-    }
+    // Sincronizar datos con Firestore
+    syncToServer: async (uid, email) => {
+        const { points, upgrades } = get();
+        
+        try {
+          await saveProgressToFirestore(uid, email, points, upgrades);
+          console.log("Sincronizando datos en Firestore");
+        } catch (error) {
+          console.error("No se pudo sincronizar datos en Firestore", error);
+        }
+      }
+      
 }))
 
 export default useRockStore;

@@ -3,7 +3,6 @@ import {getAuth} from "firebase/auth";
 import {getFirestore} from "firebase/firestore";
 import {ENV} from "../config/env.js";
 
-
 const firebaseConfig = {
     apiKey: ENV.FIREBASE.API_KEY,
     authDomain: ENV.FIREBASE.AUTH_DOMAIN,
@@ -13,11 +12,7 @@ const firebaseConfig = {
     appId: ENV.FIREBASE.APP_ID
 };
 
-
-
-// Inicializa la app de Firebase
 const app = initializeApp(firebaseConfig);
 
-// Exporta los servicios que se necesitan en la aplicación
 export const auth = getAuth(app);
 export const db = getFirestore(app);
