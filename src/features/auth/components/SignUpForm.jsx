@@ -57,17 +57,13 @@ function SignUpForm() {
         }
 
 
+        //Registro en Firestore (usuario: iud, email, puntos y mejoras)
         try {            
-            //Registro en Firestore (usuario: iud, email, puntos y mejoras)
             const userCredential = await signup(formData.email, formData.password);
             const user = userCredential.user;
-
             await saveProgressToFirestore(user.uid, user.email, 0, []);
-            
-
             navigate('/');
         } catch (error) {
-
             switch (error.code) {
                 case 'auth/email-already-in-use':
                     setError("El correo ya está registrado");
@@ -81,11 +77,9 @@ function SignUpForm() {
                 case 'auth/missing-password':
                     setError("Debes ingresar una contraseña");
                     break;
-
                 case 'auth/user-disabled':
                     setError('Tienes la cuenta inhabilitada, por lo que no puedes acceder');
                     break;
-
                 default:
                     break;
             }
@@ -129,7 +123,6 @@ function SignUpForm() {
                     aria-describedby={error ? 'signup-form-error' : undefined}
                 />
                 <AuthSubmitButton>Regístrate</AuthSubmitButton>
-
             </form>
         </section>
         {error && <p id={"signin-form-error"} className="text-red-700 mt-3">{error}</p>}

@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../../lib/firebase';
+import useRockStore from "../../game/stores/rock-store";
 
 export const authContext = createContext();
 
@@ -14,14 +15,19 @@ export const useAuth = () => {
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
+    const setUid = useRockStore((state) => state.setUid);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser);
+            setUser(currentUser);     
+            if (currentUser) {
+                setUid(currentUser.uid); 
+            } else {
+                setUid(null);
+            }       
         });
-
         return () => unsubscribe();
-    }, []);
+    }, [setUid]);
 
     const signup = async (email, password, repeatPassword) => {
         return await createUserWithEmailAndPassword(auth, email, password, repeatPassword); 

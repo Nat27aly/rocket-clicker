@@ -14,33 +14,30 @@ export function GameSection() {
 
     // Sincronizar intervalos Firestore
     useEffect(() => {
-        if (!user) return;
-        console.log("User desde GameSection:", user); 
-
-        const interval = setInterval(() => {
-            console.log("Sincronizando con Firestore:", {
-                uid: user.uid,
-                email: user.email
-            });
-            syncToServer(user.uid, user.email);
-        }, 3000);
+        if (user && user.uid) {
+            const interval = setInterval(() => {
+                syncToServer(user.uid, user.email);
+            }, 3000);
 
         return () => clearInterval(interval);
+        }
     }, [user, syncToServer]);
 
     // Sincronizar intervalos Puntos/seg
     useEffect(() => {
-        const intervalId = setInterval(() => {
-            addPoints(getTotalCPS())
-        }, 3000)
-        return () => clearInterval(intervalId);
-    }), [];
+        if (user) { // Verifica si el usuario está disponible antes de ejecutar
+            const intervalId = setInterval(() => {
+                addPoints(getTotalCPS());
+            }, 60000);
+            return () => clearInterval(intervalId);
+        }
+    }), [user, getTotalCPS, addPoints];
 
 
     const loadFromServer = useRockStore(state => state.loadFromServer);
     useEffect(() => {
-        if(user){
-            console.log("Cargando Progreso desde Firestore.");
+        if(user  && user.uid){
+            //console.log("Cargando Progreso desde Firestore.");
             loadFromServer(user.uid);            
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
