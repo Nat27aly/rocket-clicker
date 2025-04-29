@@ -28,7 +28,7 @@ export function GameSection() {
         if (user) { // Verifica si el usuario está disponible antes de ejecutar
             const intervalId = setInterval(() => {
                 addPoints(getTotalCPS());
-            }, 60000);
+            }, 3000);
             return () => clearInterval(intervalId);
         }
     }), [user, getTotalCPS, addPoints];
