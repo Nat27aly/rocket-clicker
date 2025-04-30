@@ -52,7 +52,20 @@ const useRockStore = create((set, get) => ({
       saveToLocalStorage(`Rock_Clicker_${uid}`, newState);
       return { points: newPoints };
     }),
-  addPoints: (amount) => set((state) => ({ points: state.points + amount })),
+
+  //addPoints: (amount) => set((state) => ({ points: state.points + amount })), 
+
+  addPoints: (amount) => set((state) => {
+  const newPoints = parseFloat((state.points + amount).toFixed(1)); // Redondea a 1 decimal
+  console.log('Antes de actualizar los puntos:', state.points, 'puntos añadidos:', amount, 'nuevo valor:', newPoints);
+  
+  // Guardar en localStorage y Firestore
+  saveToLocalStorage(`Rock_Clicker_${state.uid}`, { points: newPoints, upgrades: state.upgrades });
+  return { points: newPoints };
+}),
+
+
+
   getTotalCPS: () => {
     const state = get();
     const upgrades = Object.values(state.upgrades);

@@ -8,7 +8,6 @@ import { useAuth } from '../../auth/context/authContext.jsx';
 export function GameSection() {
     const addPoints = useRockStore(state => state.addPoints);
     const getTotalCPS = useRockStore(state => state.getTotalCPS);
-   
     const syncToServer = useRockStore(state => state.syncToServer); 
     const { user } = useAuth(); 
 
@@ -17,7 +16,7 @@ export function GameSection() {
         if (user && user.uid) {
             const interval = setInterval(() => {
                 syncToServer(user.uid, user.email);
-            }, 3000);
+            }, 1000);
 
         return () => clearInterval(interval);
         }
@@ -28,16 +27,15 @@ export function GameSection() {
         if (user) { // Verifica si el usuario está disponible antes de ejecutar
             const intervalId = setInterval(() => {
                 addPoints(getTotalCPS());
-            }, 3000);
+            }, 1000);
             return () => clearInterval(intervalId);
         }
-    }), [user, getTotalCPS, addPoints];
+    }, [user, getTotalCPS, addPoints]);
 
 
     const loadFromServer = useRockStore(state => state.loadFromServer);
     useEffect(() => {
         if(user  && user.uid){
-            //console.log("Cargando Progreso desde Firestore.");
             loadFromServer(user.uid);            
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
