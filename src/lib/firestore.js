@@ -1,5 +1,5 @@
-import { db } from "./firebase";
-import { doc, setDoc, getDoc, serverTimestamp, Timestamp } from "firebase/firestore";
+import {db} from "./firebase";
+import {doc, setDoc, getDoc, serverTimestamp} from "firebase/firestore";
 
 /**
  * Guarda el progreso del usuario en Firestore.
@@ -12,8 +12,6 @@ import { doc, setDoc, getDoc, serverTimestamp, Timestamp } from "firebase/firest
 
 export const saveProgressToFirestore = async (uid, email, points, upgrades) => {
   try {
-   // console.log("Guardando en Firestore:", { uid, email, points, upgrades });
-
     const userRef = doc(db, "users", uid);
     const userSnap = await getDoc(userRef);
 
@@ -52,13 +50,11 @@ export const loadProgressFromFirestore = async (uid) => {
 
     if (userSnap.exists()) {
       const data = userSnap.data();
-      //console.log("Datos cargados de Firestore:", data);
       return {
         points: data.points || 0,
         upgrades: data.upgrades || {}
       };
     } else {
-      //console.log("No hay datos previos para este usuario.");
       return null;
     }
   } catch (error) {

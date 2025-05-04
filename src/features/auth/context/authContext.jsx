@@ -1,7 +1,10 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../../lib/firebase';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, deleteUser, EmailAuthProvider, reauthenticateWithCredential, reauthenticateWithPopup} from 'firebase/auth';
+import { auth, db } from '../../../lib/firebase';
 import useRockStore from "../../game/stores/rock-store";
+import { doc, deleteDoc } from "firebase/firestore";
+import { clearProgressFromLocal } from "../../../utils/local-storage";
+
 
 export const authContext = createContext();
 
@@ -16,6 +19,7 @@ export const useAuth = () => {
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const setUid = useRockStore((state) => state.setUid);
+    const syncToServer = useRockStore.getState().syncToServer;
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -42,10 +46,25 @@ export function AuthProvider({ children }) {
         const popUpResult = await signInWithPopup(auth, provider);
         return true;
     }
+    
+   const signOutApp = async () => {
+    if (user) {
+        const { uid, email } = user;
 
-    const signOutApp = async () => {
-        return await signOut(auth);
+        try{
+            await syncToServer(uid, email);
+            await signOut(auth);
+            console.log("Cerrando sesión, guardando progreso en LocalStorage y Firestore.");
+
+            setUser(null);
+            setUid(null);
+        } catch(error) {
+            console.log("Error al cerra la sesión.", error);   
+        }
+    } else {
+        console.log("Usuario no autenticado. No hay datos que guardar.");
     }
+};
 
     const checkLogged = () => {
         return new Promise((resolve) => {
@@ -55,8 +74,50 @@ export function AuthProvider({ children }) {
         });
     }
 
+    // Eliminar cuenta de Firebase/Firestore y localstorage
+    const deleteAccount = async (email, password) => {
+        if (!user) {
+            throw new Error("No hay usuario autenticado.");
+        }
+    
+        try {
+            const providerId = user.providerData[0]?.providerId;
+    
+            if (providerId === "google.com") {
+                const provider = new GoogleAuthProvider();
+                await reauthenticateWithPopup(user, provider);
+            } else if (providerId) {
+                const credential = EmailAuthProvider.credential(email, password);
+                await reauthenticateWithCredential(user, credential);
+            } else {
+                throw new Error("Proveedor desconocido.");
+            }
+    
+            await deleteDoc(doc(db, "users", user.uid));
+            console.log("Eliminando documento de Firestore para usuario:", user.uid);
+    
+            await deleteUser(user);
+            console.log("Usuario de Firebase Auth eliminado:", user.uid);
+    
+            clearProgressFromLocal(user.uid);
+            console.log("Datos eliminados de LocalStorage:", localStorage.getItem(user.uid));
+
+            await signOut(auth);
+            console.log("Sesión cerrada.");
+
+            setUser(null);
+            setUid(null);
+    
+            window.location.reload();
+        } catch (error) {
+            console.error("No se pudo eliminar la cuenta:", error);
+            throw error;
+        }
+    };
+    
+
     return (
-        <authContext.Provider value={{ user, signup, signin, signGoogle, signOutApp, checkLogged }}>
+        <authContext.Provider value={{ user, signup, signin, signGoogle, signOutApp, checkLogged, deleteAccount }}>
             {children}
         </authContext.Provider>
     );

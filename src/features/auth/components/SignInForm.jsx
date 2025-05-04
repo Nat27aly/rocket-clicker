@@ -5,6 +5,7 @@ import { useAuth } from "../context/authContext.jsx";
 import { useNavigate } from "react-router";
 import useRockStore from "../../game/stores/rock-store.js";
 import { auth } from "../../../lib/firebase.js";
+import { saveProgressToFirestore } from "../../../lib/firestore.js";
 
 function SignInForm() {
     const [formData, setFormData] = useState({
@@ -16,13 +17,6 @@ function SignInForm() {
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const setUid = useRockStore((state) => state.setUid); 
-
-    useEffect(() =>{ 
-        if(auth.currentUser){
-            setUid(auth.currentUser.uid);
-            navigate("/game");
-        }
-    }, [setUid, navigate]);
 
     // Esta funcion se llama cada vez que el input detecta un cambio
     function handleChange(event) {
@@ -60,8 +54,16 @@ function SignInForm() {
         }
 
         try {
-            await signin(formData.email, formData.password);
+            const userCredential = await signin(formData.email, formData.password);
+            const user = userCredential.user;
+
+            if(!user.emailVerified){
+                setError("Debes confirmar el correo de verificación.");
+                return;
+            }
+
             setUid(auth.currentUser.uid);
+            setUid(user.uid);
             navigate('/game');
         } catch (error) {
             // Maneja el error de autenticación
@@ -118,15 +120,6 @@ function SignInForm() {
             {error && <p id={"signin-form-error"} aria-live={"assertive"} className="text-red-700">{error}</p>}
         </>
     );
-}
-
-// EJEMPLO: De una operacion asíncrona que toma 3s
-function simulateAsyncOperation() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('Operacion OK')
-        }, 3000);
-    })
 }
 
 export default SignInForm;

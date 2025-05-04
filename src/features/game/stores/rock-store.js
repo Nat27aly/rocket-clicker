@@ -1,6 +1,8 @@
 import {create} from "zustand";
 import {saveToLocalStorage} from "../../../utils/local-storage.js";
 import {saveProgressToFirestore, loadProgressFromFirestore} from "../../../lib/firestore.js";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../../lib/firebase.js";
 
 // ==== Upgrades ====
 const initialUpgrades = {
@@ -49,18 +51,16 @@ const useRockStore = create((set, get) => ({
         ...state,
         points: newPoints,
       };
-      saveToLocalStorage(`Rock_Clicker_${uid}`, newState);
+      saveToLocalStorage(uid, newState);
       return { points: newPoints };
     }),
-
-  //addPoints: (amount) => set((state) => ({ points: state.points + amount })), 
 
   addPoints: (amount) => set((state) => {
   const newPoints = parseFloat((state.points + amount).toFixed(1)); // Redondea a 1 decimal
   console.log('Antes de actualizar los puntos:', state.points, 'puntos añadidos:', amount, 'nuevo valor:', newPoints);
   
   // Guardar en localStorage y Firestore
-  saveToLocalStorage(`Rock_Clicker_${state.uid}`, { points: newPoints, upgrades: state.upgrades });
+  saveToLocalStorage(state.uid, { points: newPoints, upgrades: state.upgrades });
   return { points: newPoints };
 }),
 
@@ -106,7 +106,7 @@ const useRockStore = create((set, get) => ({
         points: updatedPoints,
         upgrades: newUpgrades,
       };
-      saveToLocalStorage(`Rock_Clicker_${uid}`, newState);
+      saveToLocalStorage(uid, newState);
       set(newState);
     }
   },
@@ -132,7 +132,7 @@ const useRockStore = create((set, get) => ({
         ...state,
         upgrades: newUpgrades,
       };
-      saveToLocalStorage(`Rock_Clicker_${uid}`, newState);
+      saveToLocalStorage(uid, newState);
       set(newState);
     }
   },
@@ -142,8 +142,18 @@ const useRockStore = create((set, get) => ({
     const { points, upgrades } = get();
 
     try {
+      // Verificar si el documento del usuario existe en Firestore
+    const userDocRef = doc(db, "users", uid);
+    const userDocSnap = await getDoc(userDocRef);
+
+    // Si el documento no existe, no procedemos con la sincronización
+    if (!userDocSnap.exists()) {
+      return;
+    }
+
       await saveProgressToFirestore(uid, email, points, upgrades);
-      saveToLocalStorage(`Rock_Clicker_${uid}`, { points, upgrades });
+      saveToLocalStorage(uid, { points, upgrades });
+      
     } catch (error) {
       console.error("No se pudo sincronizar datos en Firestore", error);
     }
@@ -162,10 +172,11 @@ const useRockStore = create((set, get) => ({
           },
         });
 
-        saveToLocalStorage(`Rock_Clicker_${uid}`, {
+        saveToLocalStorage(uid, {
           points: data.points,
           upgrades: data.upgrades,
         });
+        
       } else {
         console.log(
           "No hay datos previos en Firestore. Se mantiene el estado por defecto."
@@ -175,6 +186,9 @@ const useRockStore = create((set, get) => ({
       console.error("Error al cargar datos del servidor:", error);
     }
   },
+
+
+
 }));
 
 export default useRockStore;
