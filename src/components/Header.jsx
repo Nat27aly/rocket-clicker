@@ -5,7 +5,6 @@ import SignOutButton from "../features/auth/components/SignOutButton.jsx";
 import PickaxeIcon from "./icons/PickaxeIcon.jsx";
 import {Link} from "react-router";
 import { useLocation } from "react-router";
-import DeleteAccountButton from '../features/auth/components/DeleteAccountButton.jsx';
 
 
 function Header() {
@@ -34,7 +33,6 @@ function Header() {
                 <SignInButton insideApp={inside}/>
                 <SignUpButton insideApp={inside}/>
                 <SignOutButton insideApp={inside}/>
-                {inside && <DeleteAccountButton insideApp={inside}/>}
             </div>
         </div>
     );

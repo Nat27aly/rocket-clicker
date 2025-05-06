@@ -2,8 +2,9 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, deleteUser, EmailAuthProvider, reauthenticateWithCredential, reauthenticateWithPopup} from 'firebase/auth';
 import { auth, db } from '../../../lib/firebase';
 import useRockStore from "../../game/stores/rock-store";
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, deleteDoc, getDoc } from "firebase/firestore";
 import { clearProgressFromLocal } from "../../../utils/local-storage";
+import { loadProgressFromFirestore, saveProgressToFirestore } from "../../../lib/firestore";
 
 
 export const authContext = createContext();
@@ -43,8 +44,23 @@ export function AuthProvider({ children }) {
 
     const signGoogle = async () => {
         const provider = new GoogleAuthProvider();
-        const popUpResult = await signInWithPopup(auth, provider);
-        return true;
+        
+        try {
+            const popUpResult = await signInWithPopup(auth, provider);
+            const user = popUpResult.user;
+            
+            const loadProgressGoogle = await loadProgressFromFirestore(user.uid);
+            
+            if(!loadProgressGoogle){
+                await saveProgressToFirestore(user.uid, user.email, 0, []);
+            }
+            return true;
+            
+        } catch (error) {
+            console.error("Error durante conexión con Google:", error);
+            return false;
+        }
+        
     }
     
    const signOutApp = async () => {
