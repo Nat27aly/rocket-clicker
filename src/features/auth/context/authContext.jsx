@@ -6,7 +6,6 @@ import { doc, deleteDoc, getDoc } from "firebase/firestore";
 import { clearProgressFromLocal } from "../../../utils/local-storage";
 import { loadProgressFromFirestore, saveProgressToFirestore } from "../../../lib/firestore";
 
-
 export const authContext = createContext();
 
 export const useAuth = () => {
@@ -44,6 +43,8 @@ export function AuthProvider({ children }) {
 
     const signGoogle = async () => {
         const provider = new GoogleAuthProvider();
+        const popUpResult = await signInWithPopup(auth, provider);
+        return true;
         
         try {
             const popUpResult = await signInWithPopup(auth, provider);
