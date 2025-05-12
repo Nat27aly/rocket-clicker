@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="23mm"
+   height="23mm"
+   viewBox="0 0 23 23"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="martillo_hidraulico.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="2.9683221"
+     inkscape:cx="92.139596"
+     inkscape:cy="57.102967"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path69"
+       d="m 2.5017863,21.648014 -1.3049201,0.413103 0.4131001,-1.304573 4.71523,-4.715228 0.8914702,0.89147 -4.7148802,4.715228"
+       style="fill:#b9bcba;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352778" />
+    <path
+       id="path70"
+       d="M 7.6477565,17.36388 5.8940963,15.610222 c -0.41134,-0.410986 -0.41134,-1.077737 0,-1.488723 l 3.1217302,-3.122083 3.2427395,3.242733 -3.1220895,3.121731 c -0.41098,0.411339 -1.07773,0.411339 -1.48872,0"
+       style="fill:#34373d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352778" />
+    <path
+       id="path71"
+       d="M 12.863226,14.84681 8.4111665,10.394755 c -0.37606,-0.376061 -0.37606,-0.9860137 3.5e-4,-1.3624277 l 5.1484395,-5.1484393 5.81413,5.8144833 -5.14843,5.1484387 c -0.37642,0.376062 -0.98602,0.376062 -1.36243,0"
+       style="fill:#fbb03b;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352778" />
+    <path
+       id="path72"
+       d="m 19.374086,9.6983713 -5.81413,-5.8144833 1.34197,-1.341967 c 0.31926,-0.319263 0.83679,-0.319263 1.15605,0 l 4.65843,4.6580787 c 0.31927,0.319264 0.31927,0.8367886 0,1.1560526 l -1.34232,1.342319"
+       style="fill:#34373d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352778" />
+    <path
+       id="path73"
+       d="m 21.273446,14.223805 -3.21239,-3.212395 1.13135,-1.1317107 3.2124,3.2127467 c 0.23248,0.232481 0.23248,0.609248 0,0.841728 l -0.28963,0.289631 c -0.23248,0.23248 -0.60925,0.23248 -0.84173,0"
+       style="fill:#34373d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352778" />
+    <path
+       id="path74"
+       d="m 9.0341765,1.984885 3.2123895,3.2123947 1.13171,-1.1317107 -3.21239,-3.212395 c -0.2324795,-0.23248 -0.6095995,-0.23248 -0.8420795,0 l -0.28963,0.289631 c -0.23248,0.23248 -0.23248,0.6096 0,0.84208"
+       style="fill:#34373d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352778" />
+    <path
+       id="path75"
+       d="m 17.169936,10.306207 -4.21781,-4.2181633 0.41134,-0.411339 4.21816,4.2181646 -0.41169,0.4113377"
+       style="fill:#34373d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352778" />
+    <path
+       id="path76"
+       d="m 16.346906,11.129238 -4.21781,-4.2181633 0.41134,-0.411339 4.21816,4.2178103 -0.41169,0.411692"
+       style="fill:#34373d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352778" />
+    <path
+       id="path77"
+       d="m 15.523876,11.952269 -4.21817,-4.2181643 0.4117,-0.411338 4.21816,4.2178103 -0.41169,0.411692"
+       style="fill:#34373d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352778" />
+    <path
+       id="path78"
+       d="m 7.6085965,17.324722 -1.6753402,-1.675342 -0.39264,0.392994 1.6749902,1.675342 0.39299,-0.392994"
+       style="fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352778" />
+  </g>
+</svg>
