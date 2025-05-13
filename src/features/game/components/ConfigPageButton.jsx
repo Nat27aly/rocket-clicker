@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import DeleteAccountButton from '../../auth/components/DeleteAccountButton.jsx';
 import CogIcon from "../../../components/icons/CogIcon.jsx";
-import CogIcon from "../../../components/icons/CogIcon.jsx";
 
-function ConfigPageButton() {
+function ConfigPageButton({ insideApp }) {
     const [isOpen, setIsOpen] = useState(false);
     const panelRef = useRef(null);
 
