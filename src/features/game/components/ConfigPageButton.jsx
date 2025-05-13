@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import DeleteAccountButton from '../../auth/components/DeleteAccountButton.jsx';
+import CogIcon from "../../../components/icons/CogIcon.jsx";
 
-function ConfigPageButton({ insideApp }) {
+function ConfigPageButton() {
     const [isOpen, setIsOpen] = useState(false);
     const panelRef = useRef(null);
 
@@ -23,13 +24,13 @@ function ConfigPageButton({ insideApp }) {
         setIsOpen(!isOpen);
     }
 
-
     return (
         <div className="relative z-50">
             <button
                 onMouseDown={handleClickConfig}
-                className={`px-4 py-2 bg-[url(/config.svg)] w-10 h-10 transition-transform duration-200 hover:scale-120 bg-no-repeat bg-center bg-contain ${insideApp ? '' : 'hidden'}`}
+                className={`cursor-pointer text-white px-4 py-2 transition-transform duration-200 hover:scale-120`}
             >
+                <CogIcon className="h-8 w-8"/>
             </button>
 
             <div

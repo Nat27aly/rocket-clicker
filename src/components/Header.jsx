@@ -33,7 +33,7 @@ function Header() {
             <div className='flex items-center gap-2'>
                 <SignInButton insideApp={inside}/>
                 <SignUpButton insideApp={inside}/>
-                <ConfigPageButton insideApp={inside}/>
+                {inside ? <ConfigPageButton/> : null}
                 <SignOutButton insideApp={inside}/>
             </div>
         </div>
