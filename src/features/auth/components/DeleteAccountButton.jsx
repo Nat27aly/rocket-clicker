@@ -40,8 +40,17 @@ function DeleteAccountButton() {
             await deleteAccount(email, password);
             navigate("/");
         } catch (error) {
-            console.error("Error al eliminar cuenta:", error.message);
-            setErrorDelete(`Error: ${error.message}`);
+            switch (error.code) {
+                case 'auth/invalid-credential':
+                    setErrorDelete('Correo o contraseña incorrectos');
+                    break;
+                case undefined:
+                    setErrorDelete('');
+                    break;
+                default:
+                    setErrorDelete('Ha ocurrido un error y no es posible verificar la cuenta para su eliminación');
+                    break;
+            }
         }
     };
 
@@ -52,13 +61,14 @@ function DeleteAccountButton() {
                     variant="quinary"
                     size="lg"
                     onClick={handleDeleteClick}
-                    className="p-2"
+                    className="p-2 w-full"
+
                 >
-                    DeleteAccount
+                    Delete Account
                 </Button>
             ) : (
                 <div className="right-4 bg-white text-black p-4 rounded-lg shadow-lg z-50 w-55">
-                    {errorDelete && <p className="text-red-700">{errorDelete}</p>}
+                    {errorDelete && <p className="text-red-700 mb-5 font-bold">{errorDelete}</p>}
                     <form onSubmit={handleSubmit} className="flex flex-col">
                         <input
                             type="email"
@@ -77,10 +87,10 @@ function DeleteAccountButton() {
                         <div className="flex justify-between">
                             <Button type="submit" variant="quinary"
                                 size="sm" className=" px-3 py-1">
-                                Confirm
+                                Confirmar
                             </Button>
                             <Button type="button" variant="tertiary" size="sm" onClick={handleCancel} className="px-3 py-1">
-                                Cancel
+                                Cancelar
                             </Button>
                         </div>
                     </form>
