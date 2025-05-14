@@ -59,7 +59,7 @@ function DeleteAccountButton() {
             {!showForm ? (
                 <Button
                     variant="quinary"
-                    size="lg"
+                    size="md"
                     onClick={handleDeleteClick}
                     className="p-2 w-full"
 
