@@ -43,26 +43,40 @@ export function AuthProvider({ children }) {
 
     const signGoogle = async () => {
         const provider = new GoogleAuthProvider();
-        const popUpResult = await signInWithPopup(auth, provider);
-        return true;
-        
+            
+
         try {
+
             const popUpResult = await signInWithPopup(auth, provider);
+
             const user = popUpResult.user;
+
             
+
             const loadProgressGoogle = await loadProgressFromFirestore(user.uid);
+
             
+
             if(!loadProgressGoogle){
+
                 await saveProgressToFirestore(user.uid, user.email, 0, []);
+
             }
+
             return true;
+
             
+
         } catch (error) {
+
             console.error("Error durante conexión con Google:", error);
+
             return false;
+
         }
-        
     }
+
+        
     
    const signOutApp = async () => {
     if (user) {
