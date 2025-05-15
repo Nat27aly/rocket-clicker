@@ -6,7 +6,6 @@ import { doc, deleteDoc, getDoc } from "firebase/firestore";
 import { clearProgressFromLocal } from "../../../utils/local-storage";
 import { loadProgressFromFirestore, saveProgressToFirestore } from "../../../lib/firestore";
 
-
 export const authContext = createContext();
 
 export const useAuth = () => {
@@ -44,24 +43,40 @@ export function AuthProvider({ children }) {
 
     const signGoogle = async () => {
         const provider = new GoogleAuthProvider();
-        
+            
+
         try {
+
             const popUpResult = await signInWithPopup(auth, provider);
+
             const user = popUpResult.user;
+
             
+
             const loadProgressGoogle = await loadProgressFromFirestore(user.uid);
+
             
+
             if(!loadProgressGoogle){
+
                 await saveProgressToFirestore(user.uid, user.email, 0, []);
+
             }
+
             return true;
+
             
+
         } catch (error) {
+
             console.error("Error durante conexión con Google:", error);
+
             return false;
+
         }
-        
     }
+
+        
     
    const signOutApp = async () => {
     if (user) {

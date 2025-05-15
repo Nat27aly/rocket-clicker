@@ -102,7 +102,6 @@ const useRockStore = create((set, get) => ({
 
   addPoints: (amount) => set((state) => {
   const newPoints = parseFloat((state.points + amount).toFixed(1)); // Redondea a 1 decimal
-  console.log('Antes de actualizar los puntos:', state.points, 'puntos añadidos:', amount, 'nuevo valor:', newPoints);
   
   // Guardar en localStorage y Firestore
   saveToLocalStorage(state.uid, { points: newPoints, upgrades: state.upgrades });
