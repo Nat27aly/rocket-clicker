@@ -5,7 +5,7 @@ import { useAuth } from "../context/authContext.jsx";
 import { useNavigate } from "react-router";
 import useRockStore from "../../game/stores/rock-store.js";
 import { auth } from "../../../lib/firebase.js";
-import { saveProgressToFirestore } from "../../../lib/firestore.js";
+
 
 function SignInForm() {
     const [formData, setFormData] = useState({
@@ -57,7 +57,7 @@ function SignInForm() {
             const userCredential = await signin(formData.email, formData.password);
             const user = userCredential.user;
 
-            if(!user.emailVerified){
+            if(!user || !user.emailVerified){
                 setError("Debes confirmar el correo de verificación.");
                 return;
             }

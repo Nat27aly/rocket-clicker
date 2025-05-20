@@ -137,16 +137,13 @@ const useRockStore = create((set, get) => ({
     }
   },
 
-  // Sincronizar datos con Firestore
   syncToServer: async (uid, email) => {
     const { points, upgrades } = get();
 
     try {
-      // Verificar si el documento del usuario existe en Firestore
     const userDocRef = doc(db, "users", uid);
     const userDocSnap = await getDoc(userDocRef);
 
-    // Si el documento no existe, no procedemos con la sincronización
     if (!userDocSnap.exists()) {
       return;
     }
@@ -159,7 +156,7 @@ const useRockStore = create((set, get) => ({
     }
   },
 
-  // Carga el progreso del usuario desde Firestore.
+
   loadFromServer: async (uid) => {
     try {
       const data = await loadProgressFromFirestore(uid);
