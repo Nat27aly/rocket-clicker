@@ -47,13 +47,13 @@ export default function Rock() {
         >
           <img
             draggable="false"
-            className=" cursor-pointer select-none w-35 sm:w-42 md:w-65 lg:w-75 xl:w-75 2xl:w-65"
+            className=" cursor-pointer select-none w-35 sm:w-42 md:w-43 lg:w-62 xl:w-65 2xl:w-70"
             src="/rock.svg"
             alt="rock click"
           />
           <div
             draggable="false"
-            className={`select-none w-35 sm:w-42 md:w-65 lg:w-75 xl:w-75 2xl:w-65 particleButton particles hidden md:block ${
+            className={`select-none w-35 sm:w-42 md:w-43 lg:w-62 xl:w-65 2xl:w-70 particleButton particles hidden md:block ${
               shaking ? "" : "animated"
             }`}
             style={{

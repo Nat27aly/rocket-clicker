@@ -20,7 +20,6 @@ import {
   saveProgressToFirestore,
 } from "../../../lib/firestore";
 
-
 export const authContext = createContext();
 
 export const useAuth = () => {
