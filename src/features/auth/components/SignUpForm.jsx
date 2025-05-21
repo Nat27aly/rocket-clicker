@@ -49,7 +49,6 @@ function SignUpForm() {
       return;
     }
 
-    //Limitar formato de email
     const domainMails = [
       "gmail.com",
       "hotmail.com",
@@ -66,7 +65,6 @@ function SignUpForm() {
       return;
     }
 
-    // min. 8 caracteres (1 letra, 1 número, 1 simbolo)
     const passwordRegex =
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
     if (!passwordRegex.test(formData.password)) {
@@ -76,12 +74,11 @@ function SignUpForm() {
       return;
     }
 
-    //Registro en Firestore (usuario: iud, email, puntos y mejoras)
     try {
       const userCredential = await signup(formData.email, formData.password);
       const user = userCredential.user;
-      await sendEmailVerification(user); // verificar registro por email
-      await saveProgressToFirestore(user.uid, user.email, 0, []); // CREAR DOC
+      await sendEmailVerification(user);
+      await saveProgressToFirestore(user.uid, user.email, 0, []);
       navigate("/");
     } catch (error) {
       switch (error.code) {
